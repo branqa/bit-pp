@@ -1,3 +1,21 @@
+// change the digits of two-digit number
+var n = 58;
+var x;
+var y;
+
+if (typeof n == 'number') {
+    if (n / 10 < 10 && n / 10 >= 1) {
+        x = (n - n % 10) / 10;
+        y = n % 10;
+        console.log(y * 10 + x);
+    } else {
+        console.log('Error');
+    }
+} else {
+    console.log('Error');
+}
+
+// check if the current number is odd or even
 var i;
 
 for (i = 0; i <= 15; i++) {
@@ -7,8 +25,9 @@ for (i = 0; i <= 15; i++) {
         console.log(i + " number is odd");
     }
 }
+// ---------
 
-
+// sum the multiples of 3 and 5 under 1000
 var i;
 var result = 0;
 
@@ -19,7 +38,9 @@ for (i = 1; i <= 1000; i++) {
 }
 
 console.log(result);
+// -------
 
+// compute the sum and product of an array of integers
 var arr = [1, 2, 3, 4, 5];
 var i;
 var sum = 0;
@@ -32,17 +53,17 @@ for (i = 0; i < arr.length; i++) {
 
 console.log(sum);
 console.log(com);
+// -----------
 
-
+// print the elements of the following array as a single string
 var x = ['1', 'A', 'B', 'c', 'r', true, NaN, undefined];
 
 for (i = 0; i < x.length; i++) {
     console.log("'" + x[i] + "'");
 }
+// ------------
 
-
-
-
+// print the elements of the following array
 var a = [
     [1, 2, 1, 24],
     [8, 11, 9, 4],
@@ -54,9 +75,9 @@ for (i = 0; i < a.length; i++) {
         console.log(a[i][j]);
     }
 }
+// ----------
 
-
-
+// sum of squares of the first 20 numbers
 var i;
 var result = 0;
 for (i = 1; i <= 20; i++) {
@@ -64,10 +85,9 @@ for (i = 1; i <= 20; i++) {
     result = result + i * i;
 }
 console.log(result);
+// ---------
 
-
-
-
+// average marks of the following students
 var marks = [80, 77, 88, 95, 68];
 var average;
 var sum = 0;
@@ -92,9 +112,10 @@ if (average < 60) {
 };
 
 console.log("Average grade is " + grade);
+// ----------
 
+// "FizzBuzz"
 var i;
-
 for (i = 1; i <= 100; i++) {
     if (i % 3 == 0) {
         console.log('Fizz');
@@ -104,7 +125,7 @@ for (i = 1; i <= 100; i++) {
         console.log(i);
     }
 }
-
+//modified "FizzBuzz"
 var i;
 
 for (i = 1; i <= 100; i++) {
@@ -119,91 +140,3 @@ for (i = 1; i <= 100; i++) {
     }
 }
 
-var a = [6, 5, 9, 14, 1, 11, 1, 7];
-
-var min = a[0];
-var position = 0;
-var i;
-
-for (i = 1; i < a.length; i++) {
-    if (min > a[i]) {
-        min = a[i];
-        position = i;
-    }
-}
-console.log('min is ' + min + " and it is on position " + position);
-
-
-
-var a = [6, 5, 9, 14, 1, 11, 1, 7];
-
-var min = a[0];
-var position = 0;
-var i;
-
-for (i = 1; i < a.length; i++) {
-    if (min >= a[i]) {
-        min = a[i];
-        position = i;
-
-    }
-}
-console.log('Last min is ' + min + " and it is on position " + position);
-
-// last min, poslednja pozicija elementa u nizu - obilazak unazad
-
-for (i = a.length - 1; i >= 0; i--) {
-
-}
-
-
-/* max and min change position
-var a = [6, 5, 9, 14, 1, 11, 1, 7];
-
-var min = a[0];
-var max = a[0];
-var maxPosition = 0;
-var minPosition = 0;
-var i;
-
-for(i = 1; i < a.length; i++) {
-    if(min > a[i]) {
-        min = a[i];
-        minPosition = i;
-    }
-    if()
-}
-console.log('min is ' + min + " and it is on position " + position);
-
-*/
-var i;
-var n = 8;
-
-for (r = 0; r <= n - 1; r++) {
-    if (r == 0 || r == n - 1) {
-        var str = '';
-        for (i = 0; i < n; i++) {
-            str = str + '* '
-        }
-        console.log(str);
-    } else {
-        var str1 = '';
-
-        for (i = 0; i < n - 2; i++) {
-            str1 = str1 + '  ';
-
-        }
-        str1 = '* ' + str1 + '*';
-        console.log(str1);
-    }
-}
-
-
-// crtaj x od *
-
-var i;
-var n;
-
-for (r = 0; r <= n - 1; r++) {
-    if ()
-}
