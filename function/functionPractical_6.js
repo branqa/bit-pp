@@ -1,4 +1,3 @@
-// Try to solve all assignments on a separate branch of bit-pp repository. Don’t forget to pull changes done earlier first and push the new repository to remote when done with all the work at the end.
 
 /*Write a function to count vowels in a provided string.
 
@@ -99,35 +98,56 @@ console.log(arrayOfDigits(2345));
 // Write a program that prints a multiplication table for numbers up to 12.
 
 var tableOfMultiplication = function (n) {
-    var a = [];
-    var b = [];
     var i;
     var j;
-    var x = 1;
-    var y = 1;
-    for (i = 0; i <= n; i++) {
-        for (j = 0; j <= n; j++) {
-            b[j] = x*y;
-            y++
+    var a='';
+    for (i = 1; i <= n; i++) {
+        for (j = 1; j <= n; j++) {
+            a+=i*j+' ';
         }
-        y = 1;
-        a[i] = b;
-        x++;
+        a+='\n';
     }
     return a;
-
 }
 
 console.log(tableOfMultiplication(12));
 
+/*
 Write a function to input temperature in Centigrade and convert to Fahrenheit.
+*/
+var convertCentigradeToFahrenheit = function(a) {
+    var a;
+    var b = a * 9 / 5 + 32;
+     return b;
+}
+
+console.log(convertCentigradeToFahrenheit(15));
 
 
+/*Write a function to find the maximum element in array of numbers.Filter out all non - number elements.
+*/
+var a = [2, -1, 9, 'a', Infinity, 3, NaN];
+var maxElementInArray = function(a) {
+    var i;
+    var j=0;
+    var m=[];
+    for (i=0;i<a.length;i++){
+        if (typeof(a[i])=='number' && !isNaN(parseInt(a[i]))){
+            m[j]=a[i];
+            j++;
+        }
+    }
+    var max=m[0];
+    for (j=1;j<m.length;j++){
+        if (max<m[j]){
+            max=m[j];
+        }
+    }
+    return max;
+}
+console.log(maxElementInArray(a));
 
-Write a function to find the maximum element in array of numbers.Filter out all non - number elements.
-
-
-
+/*
 Write a function to find the maximum and minimum elements.Function returns an array.
 
 
@@ -176,4 +196,4 @@ For example the list["Hello", "World", "in", "a", "frame"] gets printed as:
 *********
 
 
-
+*/
