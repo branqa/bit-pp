@@ -3,6 +3,7 @@ var a = [4, 6, 11, 18, 32];
 var b = [-1, 7, 13, 15];
 
 function arrange(a, b) {
+    'use strict'
     var i;
     var j;
     var k;
@@ -40,7 +41,7 @@ var a = [3, 4, -2];
 var b = [8, 7, 4, 1];
 
 function concatenate(a, b) {
-
+    'use strict'
     var i;
     var j;
     var k = 0;
@@ -63,6 +64,7 @@ var a = [5, 7, 9];
 var b = [2, -3, 1];
 
 function interwinesTwoArrays(a, b) {
+    'use strict'
     var i;
     var j;
     var k = 0;
@@ -86,6 +88,7 @@ var x = 3;
 var a = [5, -4.2, 2, 7];
 
 function isElementInArray(x, a) {
+    'use strict'
     var i;
     for (i = 0; i < a.length; i++) {
         if (a[i] == x) {
@@ -101,6 +104,7 @@ console.log(isElementInArray(x, a));
 var a = [-3, 11, 5, 3.4, -8, 0];
 
 function multipliesPositiveElement(a) {
+    'use strict'
     var i;
     for (i = 0; i < a.length; i++) {
         if (a[i] > 0) {
@@ -117,9 +121,10 @@ console.log(multipliesPositiveElement(a));
 var a = [-4, 2, 2, -1, -6];
 
 function minOfArray(a) {
+    'use strict'
     var i;
     var min = a[0];
-    counter = 0;
+    var counter = 0;
     for (i = 1; i < a.length; i++) {
 
         if (min > a[i]) {
@@ -138,6 +143,7 @@ console.log(minOfArray(a));
 var a = [-5, 3, 7, -10, -6];
 
 function checkSecondMin(n) {
+    'use strict'
     var min = n[0];
     var c = n[0];
     var i;
@@ -169,6 +175,7 @@ console.log(checkSecondMin(a));
 var a = [-5, -3, 7, -1, 6];
 
 function checkSecondMin(n) {
+    'use strict'
     var min = n[0];
     var c = n[0];
     var i;
@@ -196,6 +203,7 @@ console.log(checkSecondMin(a));
 var a = [3, 11, -5, -3, -2, 8, 1];
 
 function sumOfThePositiveElements(n) {
+    'use strict'
     var i;
     var sum = 0;
     for (i = 0; i < n.length; i++) {
@@ -213,6 +221,7 @@ console.log(sumOfThePositiveElements(a));
 var a = [-5, 3, 7, 1, 7, 3, -5];
 
 function symmetricArray(n) {
+    'use strict'
     var i;
     var j = n.length - 1;
     var counter = 0;
@@ -238,6 +247,7 @@ var a = [4, 6, 2, 8, 2, 2]
 var e = 2;
 
 function deleteGivenElement(a, e) {
+    'use strict'
     var i;
     var j = 0;
     var k = [];
@@ -260,28 +270,30 @@ var e = 78;
 var p = 3;
 
 function insertElement(e, p, a) {
+    'use strict'
     var i;
-    var j=0;
-    var b=[];
-    if (p>a.length-1) {
+    var j = 0;
+    var b = [];
+    if (p > a.length - 1) {
         return 'Error message';
-    } 
-    else { 
-      for(i=0; i<a.length;i++,j++){
-            if (i==p){
-                b[j]=e;
+    }
+    else {
+        for (i = 0; i < a.length; i++ , j++) {
+            if (i == p) {
+                b[j] = e;
                 j++;
             }
-            b[j]=a[i];
+            b[j] = a[i];
         }
-      
-      return b;
+
+        return b;
+    }
 }
-}
-console.log(insertElement(e,p,a));
+console.log(insertElement(e, p, a));
 // -------
 
 // Check the last index of the minimum element in a given array 
+'use strict'
 var a = [6, 5, 9, 14, 1, 11, 72];
 
 var min = a[0];
@@ -299,6 +311,7 @@ console.log('Min is ' + min + " and it is on position " + position);
 // ----------
 
 // max and min change position
+'use strict'
 var a = [6, 5, 9, 14, 11, 12, 72];
 
 var min = a[0];
@@ -306,9 +319,9 @@ var max = a[0];
 var maxPosition = 0;
 var minPosition = 0;
 var i;
-var b=[];
-for (i=0;i<a.length;i++){
-    if (a[i]<min){
+var b = [];
+for (i = 0; i < a.length; i++) {
+    if (a[i] < min) {
         min = a[i]
         minPosition = i;
     }
@@ -319,15 +332,14 @@ for (i = 0; i < a.length; i++) {
         maxPosition = i;
     }
 }
-for (i=0;i<a.length;i++){
-    if (i==minPosition){
-        b[i]=max;
-    } else if (i==maxPosition){
-        b[i]=min;
+for (i = 0; i < a.length; i++) {
+    if (i == minPosition) {
+        b[i] = max;
+    } else if (i == maxPosition) {
+        b[i] = min;
     } else {
-        b[i]=a[i];
+        b[i] = a[i];
     }
-}    
+}
 console.log(b);
-
 
