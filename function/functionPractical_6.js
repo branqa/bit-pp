@@ -18,6 +18,7 @@
 */
 
 var vowelCount = function (inputString) {
+    'use strict'
     var vowelList = 'aeiouAEIOU';
     var vowelCount = 0;
 
@@ -39,6 +40,7 @@ console.log(vowelCount("The quick brown fox"));
 */
 
 var combine = function (a, b) {
+    'use strict'
     var c = [];
     var i;
     var k = 0;
@@ -62,6 +64,7 @@ For example [1,2,3,4,5,6] rotated by two becomes [3,4,5,6,1,2]
 */
 
 var rotate = function (a, k) {
+    'use strict'
     var b = [];
     var i;
     var j = 0;
@@ -82,6 +85,7 @@ console.log(rotate([1, 2, 3, 4, 5, 6], 2));
 
 /* Write a function that takes a number and returns array of its digits. */
 var arrayOfDigits = function (a) {
+    'use strict'
     var b = '';
     b += a;
     var c = [];
@@ -98,6 +102,7 @@ console.log(arrayOfDigits(2345));
 // Write a program that prints a multiplication table for numbers up to 12.
 
 var tableOfMultiplication = function (n) {
+    'use strict'
     var i;
     var j;
     var a='';
@@ -116,6 +121,7 @@ console.log(tableOfMultiplication(12));
 Write a function to input temperature in Centigrade and convert to Fahrenheit.
 */
 var convertCentigradeToFahrenheit = function(a) {
+    'use strict'
     var a;
     var b = a * 9 / 5 + 32;
      return b;
@@ -128,11 +134,12 @@ console.log(convertCentigradeToFahrenheit(15));
 */
 var a = [2, -1, 9, 'a', Infinity, 3, NaN];
 var maxElementInArray = function(a) {
+    'use strict'
     var i;
     var j=0;
     var m=[];
     for (i=0;i<a.length;i++){
-        if (typeof(a[i])=='number' && !isNaN(parseInt(a[i]))){
+        if (typeof(a[i])=='number' && !isNaN(parseInt(a[i])) ){
             m[j]=a[i];
             j++;
         }
@@ -149,11 +156,45 @@ console.log(maxElementInArray(a));
 
 /*
 Write a function to find the maximum and minimum elements.Function returns an array.
+*/
+var a = [4, 6, 2, -9, 7, -3, 7.5];
+
+var maxAndMinInArray = function(n) {
+    var i;
+    var max = n[0];
+    var min = n[0];
+
+    for(i = 1; i< n.length; i++) {
+        if(max < n[i]) {
+            max = n[i];
+        } 
+    }
+    for(i = 1; i < n.length; i++) {
+        if(min > n[i]) {
+            min = n[i];
+        }
+    }
+var m = [min, max];
+    
+return m;
+
+}
+console.log(maxAndMinInArray(a));
 
 
 
-Write a function to find the median element of array.
+// Write a function to find the median element of array.
 
+
+var a = [-6, 9, 10, 3, -2, 7];
+
+var medianElement = function(x) {
+  
+
+  
+}
+
+console.log(medianElement(a));
 
 
 Write a function to find the element that occurs most frequently.
@@ -197,3 +238,6 @@ For example the list["Hello", "World", "in", "a", "frame"] gets printed as:
 
 
 */
+
+
+
