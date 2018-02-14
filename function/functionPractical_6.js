@@ -186,12 +186,20 @@ console.log(maxAndMinInArray(a));
 // Write a function to find the median element of array.
 
 
-var a = [-6, 9, 10, 3, -2, 7];
-
-var medianElement = function(x) {
-  
-
-  
+var a = [-6, 9, -10, 3, -2, 7,8];
+function sortNumber(a, b) {
+    return a - b;
+}
+var medianElement = function(n) {
+    
+  var b=n.sort(sortNumber);
+  var median;
+  if (n.length%2==0){
+      median = (b[(n.length)/2-1]+b[(n.length/2)])/2;
+  } else {
+      median = b[(n.length-1)/2];
+  }
+  return [median,n];
 }
 
 console.log(medianElement(a));
