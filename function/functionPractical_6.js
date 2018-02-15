@@ -262,19 +262,19 @@ console.log(firstMiddleLast(a));
 
 
 /* Write a function to find the average of N elements.Make the function flexible to receive dynamic number or parameters. */
-var x = [2, 1, -4, 3, 8, 3, 5, 4];
 
-var avgOfNElements = function (a, n) {
+
+var avgOfNElements = function () {
     var sum = 0;
     var avg;
-    for (var i = 0; i < n; i++) {
-        sum += a[i];
+    for (var i = 0; i < arguments.length ; i++) {
+        sum += arguments[i];
     }
-    avg = sum / n;
+    avg = sum / arguments.length;
     return avg;
 }
 
-console.log(avgOfNElements(x, 5));
+console.log(avgOfNElements(45, 5, 10,1,4));
 
 
 // Write a function to find all the numbers greater than the average.
