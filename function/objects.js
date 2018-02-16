@@ -3,8 +3,8 @@ var breakfast = {
     ingredients: ['eggs', 'yogurt', 'oil' ],
     energy: 550,
     printInstructions: function() {
-       var message = ' Broke ' + breakfast.ingredients[0] + ' but before put ' + breakfast.ingredients[2] + ' in frying pan ';
-       return message;
+        return ' Broke ' + breakfast.ingredients[0] + ' but before put ' + breakfast.ingredients[2] + ' in frying pan ';
+      
     } ,
     JSCompilant: function() {
         if(breakfast.energy > 500) {
@@ -14,7 +14,7 @@ var breakfast = {
         }
     }
 }
-
+console.log(breakfast);
 console.log(breakfast.printInstructions());
 
 
