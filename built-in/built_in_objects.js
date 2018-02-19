@@ -37,7 +37,7 @@ console.log(alphOrder('hgdhpdfh'));
 // Write a function to alphabetize words of a given string. Alphabetizing a string means rearranging the letters so they are sorted from A to Z.
 
 function alpWords(x){
-    y = x.trim().split(' ');
+    y = x.split(' ');
   var a = [];
   var b = '';
   for (var i = 0; i < y.length; i++) {
@@ -47,7 +47,7 @@ function alpWords(x){
   return b;
   }
 
-  console.log(alpWords('Write a function to alphabetize'));
+  console.log(alpWords('Write a function     to alphabetize'));
 
 // 5.zadatak
 // Write a function to split a string and convert it into an array of words.
@@ -74,7 +74,7 @@ console.log(splitString('Write a function to alphabetize'));
 
 // with built-in 
 function splitString1(x) {
-    return x.trim().split(' ');
+    return x.split(' ');
 }
 
 console.log(splitString1('Write a function to alphabetize'));
