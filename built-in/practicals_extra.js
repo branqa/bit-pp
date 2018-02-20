@@ -279,18 +279,19 @@ var containDigit = function(s) {
 
 // 7.zadatak c)
 // Write a function that checks if a given string is a valid hexadecimal color.
-str2 = '#00ff00';
+str2 = '#fff';
 
 
 var validHexDec = function(s){
     var regExp = /[0-9A-Fa-f]{6}/g;
-    if (s[0]='#' && regExp.test(s.slice(1))){
+    var regExp1 = /[0-9A-Fa-f]{3}/g;
+    if (s[0] = '#' && regExp.test(s.slice(1)) || regExp1.test(s.slice(1))) {
         return true;
     } else {
         return false;
     }
 }
-//console.log(validHexDec(str2));
+console.log(validHexDec(str2));
 
 
 // 7. zadatak d)
