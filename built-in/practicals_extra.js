@@ -323,3 +323,106 @@ function validator(s, a, b, c, d) {
 }
 var str4='#00ff23'
 console.log(validator(str4, allCapitals, containDigit, validHexDec, belongInterval));
+
+
+// 8.Write a function that calculates a number of days to your birthday.
+// Input: 25 February 
+// Output: 5 days
+var bday = new Date ('Apr 05 2018');
+
+var calculate = function(bday) {
+    var x =new Date();
+    var z= bday.getTime()-x.getTime();
+    var d = Math.round(z/1000/3600/24);
+  return d;
+}
+console.log(calculate(bday));
+
+ 
+//9. Write a function that for a given departure and arrival time calculates the time the trip takes.
+// 	Input: 8:22:13 11:43:22
+// 	Output: 3 hours 21 minutes 8 seconds
+
+var time1 = Date.parse ('20 Feb 2018 08:22:13');
+
+var time2 = Date.parse ('20 Feb 2018 11:43:22');
+var arrival = function(time1, time2){
+    var milisec = time2 - time1;
+    var sec = milisec /1000;
+    var sec1= sec%60;
+    var min =(sec-sec1)/60;
+    var min1 =((sec-sec1)/60) %60; 
+    var h = (min-min1)/60 ;
+    return h+':'+min1+':'+sec1;
+}
+
+console.log(arrival(time1, time2));
+
+   
+  
+//10. a. Write a constructor function that creates points in the space. Each point in the space has its own x, y, and z coordinate. For example, (3, 5, 1) can the point in the space.
+function Points(x,y,z){
+    this.x=x;
+    this.y=y;
+    this.z=z;
+}
+
+var point1 = new Points (3,5,1);
+var point2 = new Points (4,2,8);
+// console.log(point1,point2);
+
+
+
+//10. b. Write a function that calculates the distance between to points in the space. 
+
+var distance = function (p1, p2){
+    var d = Math.sqrt(Math.pow(p1.x-p2.x,2)+Math.pow(p1.y-p2.y,2)+Math.pow(p1.z-p2.z,2))
+ return d;
+
+}
+
+console.log (distance(point1,point2));
+
+//11. a. Write a function that generates a random integer value between 5 and 20.
+
+var a = 5;
+var b = 20;
+
+var a1 = 50;
+var b1 = 100;
+
+var generate = function(n1, n2){
+var max;
+var min;
+
+    if(n1 > n2){
+        max = n1;
+        min = n2;
+    } else {
+        max = n2;
+        min = n1;
+    }
+
+    var c = Math.round(((max - min) * Math.random()) +min);
+
+    return c;
+}
+
+console.log(generate(a,b));
+console.log(generate(a1,b1));
+
+
+//11. b. Write a function that generates a random integer value between 50 and 100. 
+//11. c. Write a function which expects a number and a callback factory function and returns an array of numbers produced by the factory function.   
+
+var arrayOfNum = function(n, func){
+
+    var arr = [];
+
+    for(var i = 0; i < n; i++){
+        arr.push(func(a,b));
+    }
+    return arr;
+}
+
+console.log(arrayOfNum(4, generate));
