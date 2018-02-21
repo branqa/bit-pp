@@ -1,19 +1,19 @@
-var randomNumbers = function(n){
-    var m=[];
-    var k=[];
-    var j = Math.floor(n.length*Math.random());
-    for (var i=0; i<n.length;){
-        if (k.indexOf(j)==-1){
-          m.push(n[j]);
-          k.push(j);
+var arrayOfNumbers = function(n){
+    var newArrayOfRandom=[];
+    var arrayOfIndex=[];
+     for (var i=0; i<n.length;){
+var randomIndex = Math.floor(n.length * Math.random());
+        if (arrayOfIndex.indexOf(randomIndex)==-1){
+          newArrayOfRandom.push(n[randomIndex]);
+          arrayOfIndex.push(randomIndex);
           i++;
-        } else {
+        } else{
             continue;
         }
     } 
-    return m;
+    return newArrayOfRandom;
 }
 
 
 
-console.log(randomNumbers([1,4,5,6]));
+console.log(arrayOfNumbers([1,4,5,6]));

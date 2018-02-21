@@ -12,16 +12,16 @@
             return Math.floor((Math.random()*(999999-10000))+10000);
         })();
         this.getInfo = function() {
-            var first = name.charAt(0);
-            var last = name.charAt(this.name.length-1);
+            var first = this.name.charAt(0);
+            var last = this.name.charAt(this.name.length-1);
             var s = first.toUpperCase() + last.toUpperCase() + this.id;
             return s + ', ' +  this.name + ', '+ this.price;
         };
     }
 
-    var coffee = new Product ('Grand kafa', 10.27, new Date(2018,7,13));
-    var chocolate = new Product('Najlepse zelje', 120.18, new Date(2019, 2, 5));
-    // console.log (coffee.getInfo());
+    var coffee = new Product ('Grand kafa', 156.43, new Date(2018,7,13));
+    var chocolate = new Product('Najlepse zelje', 120.12, new Date(2018, 6, 5));
+    // console.log (getInfo.coffee);
 
     function ShoppingBag() {
 
@@ -33,6 +33,8 @@
            
             if(product.expirationDate.getTime() >= currentDate.getTime()) {
                 this.productList.push(product);
+            } else {
+                return 'Date expired';
             }
 
         }
@@ -45,36 +47,44 @@
 
            }
             average = (sum / this.productList.length).toPrecision(5);
-            return average;
-    }   
+            return 'The average price of products is '+ average;
+        }   
         this.getMostExpensive = function() {
 
             var mostExpensive = this.productList[0].price; 
+            var position=0;
             for(var i = 0; i < this.productList.length; i++){
 
                 if(this.productList[i].price > mostExpensive) {
                     mostExpensive = this.productList[i].price;
+                    position=i;
                 }
             }      
-            return mostExpensive; 
-     }
+            return 'The most expensive product is ' + this.productList[position].name + ' which cost '+ mostExpensive; 
+        }
 
      
-    this.calculateTotalPrice = function() {
-        var total = 0;
-        for(var i = 0; i < this.productList.length; i++) {
+        this.calculateTotalPrice = function() {
+
+            var total = 0;
+            for(var i = 0; i < this.productList.length; i++) {
             total += this.productList[i].price;
-        }
-        return total;
-    }
- }  
+            }
+            return /*'Total price of products is '*/ + total;
+            
+            }
+            
+        }  
 
     var jsList = new ShoppingBag();
     jsList.addProduct(coffee);
     jsList.addProduct(chocolate);
-
+    
     //console.log(jsList.productList);
-    //console.log(jsList.averagePrice());
+
+    console.log(jsList.getMostExpensive());
+    console.log(jsList.averagePrice());
+    console.log(jsList.calculateTotalPrice());
 
     function PaymentCard(balance, status, validDate) {
         this.balance = balance;
@@ -82,21 +92,21 @@
         this.validDate = validDate;
    }
 
-   var Card = new PaymentCard(56.23, 'active', new Date('2018 04 23'))
+   var card = new PaymentCard(105.32, 'active', new Date('2018 04 23'))
 
    function checkoutAndBuy(ShoppingBag, PaymentCard) {
     if(PaymentCard.balance >= ShoppingBag.calculateTotalPrice()) {
         return 'Purchase is successful';
     }   else {
-        var x =(ShoppingBag.calculateTotalPrice() - PaymentCard.balance).toPrecision(4);
-        return 'Amount of money that is missing ' + x;
+        var missing = (ShoppingBag.calculateTotalPrice() - PaymentCard.balance).toPrecision(4);
+        return 'Amount of money that is missing ' +missing;
     
     }
 
 
    }
     
-   console.log(checkoutAndBuy(jsList, Card));
+  console.log(checkoutAndBuy(jsList, card));
 
 
 })();
