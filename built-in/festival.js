@@ -14,7 +14,6 @@
     var genre = new Genre('action');
     var genre1 = new Genre('comedy');
     var genre2 = new Genre('drama');
-    // console.log(genre1.getData());
 
 
     function Movie(title, length, genre) {
@@ -25,10 +24,6 @@
         }
     }
 
-    var movie1 = new Movie('Hobbit', '240min', genre1);
-    var movie2 = new Movie('Lucy', '130 min', genre);
-    //console.log(movie1.getData());
-   
 
     function Program(date) {
         this.date = date;
@@ -52,10 +47,6 @@
         }
 
     }
-    var program1 = new Program(new Date(2018, 05, 06));
-    program1.addMovie(movie1);
-    program1.addMovie(movie2);
-    //  console.log(program1.getData());
 
 
     function Festival(nameOfFest) {
@@ -82,18 +73,37 @@
 
     }
 
-    var festival1 = new Festival('Cannes fest');
-    festival1.addProgram(program1);
-    // console.log(festival1.getData());
-
     var createMovie = function(title, length, genre) {
         var genre1 = new Genre(genre);
         var newMovie =new Movie (title, length, genre1) ;
         return newMovie;
     }
 
-    var IT = createMovie('IT', '220 min', 'action');
-    console.log(IT.getData());
+    
+    
+    var createProgram = function (date) {
+        var newProgram = new Program (date);
+        return newProgram;
+    }
+    var movie1 = createMovie('IT', '220 min', 'action');
+    var movie2 = createMovie('Hobbit', '304min', 'fantasy');
+
+    
+    var festival1 = new Festival('Cannes fest');
+    
+    festival1.addProgram(program1);
+    festival1.addProgram(program2);
+    
+    var program1 = createProgram(new Date(2018, 05, 07));
+    var program2 = createProgram(new Date(2018, 05, 06));
+    program1.addMovie(movie1);
+    program1.addMovie(movie2);
+    program2.addMovie(movie1);
+    program2.addMovie(movie2);
+
+    console.log(festival1.getData());
+    
+    
 
 
 
