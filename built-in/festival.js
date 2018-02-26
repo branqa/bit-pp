@@ -88,20 +88,7 @@
     var movie1 = createMovie('IT', '220 min', 'action');
     var movie2 = createMovie('Hobbit', '304min', 'fantasy');
 
-    
-    var festival1 = new Festival('Cannes fest');
-    
-    festival1.addProgram(program1);
-    festival1.addProgram(program2);
-    
-    var program1 = createProgram(new Date(2018, 05, 07));
-    var program2 = createProgram(new Date(2018, 05, 06));
-    program1.addMovie(movie1);
-    program1.addMovie(movie2);
-    program2.addMovie(movie1);
-    program2.addMovie(movie2);
 
-    console.log(festival1.getData());
     
     
 
