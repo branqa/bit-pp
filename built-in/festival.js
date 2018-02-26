@@ -105,7 +105,22 @@
     
     
 
+    
+    var festival1 = new Festival('Cannes fest');
+    
+    
+    var program1 = createProgram(new Date(2018, 05, 07));
+    var program2 = createProgram(new Date(2018, 04, 06));
+    program1.addMovie(movie1);
+    program1.addMovie(movie2);
+    program2.addMovie(movie1);
+    program2.addMovie(movie2);
 
+    
+    festival1.addProgram(program1);
+    festival1.addProgram(program2);
+
+   console.log(festival1.getData());
 
 
 })()
