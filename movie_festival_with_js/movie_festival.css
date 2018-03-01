@@ -1,0 +1,57 @@
+/* MOVIE */
+
+h1 {
+    text-align: center;
+}
+
+main {
+    width: 90%;
+    border: 2px solid black;
+    margin: 37px auto;
+    padding: 23px;
+}
+
+.movie {
+    border: 1px solid black;
+    padding: 14px;
+    margin-top: 10px;
+}
+
+input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 32px;
+    margin: 23px 0;
+    padding: 0 10px;
+}
+
+select {
+    width: 100%;
+    height: 32px;
+    cursor: pointer;
+    margin: 10px 0;
+    background-color:  gainsboro;
+}
+
+#length-movie {
+    text-align: right;
+}
+
+#button-movie, #button-program, #button-programList {
+    background-color:#009933;
+    color: white;
+    border: 0;
+}
+
+li:nth-child(even){
+    background-color: gainsboro;
+    
+}
+
+ul{
+    list-style-type: none;
+}
+
+/* PROGRAM */
+
+
