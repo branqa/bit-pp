@@ -78,7 +78,7 @@ function createMovie() {
     // 6) azuriramo duzinu filmova
     var lengthOfAllMovie = 0;
     for (var i = 0; i < allMovies.length; i++) {
-      lengthOfAllMovie =
+      lengthOfAllMovie =0;
         parseInt(lengthOfAllMovie) + parseInt(allMovies[i].movieLength);
     }
 
@@ -88,13 +88,21 @@ function createMovie() {
   }
 
   errorMessage.appendChild(printMessage);
+
+  var movieSelect = document.querySelector(".list-of-movies");
+  var newOption = document.createElement("option");
+  for (var i = 0; i < allMovies.length; i++) {
+    var newMovie = document.createTextNode(allMovies[i].getData());
+  }
+  newOption.appendChild(newMovie);
+  movieSelect.appendChild(newOption);
+  
 }
 
-document
-  .querySelector("#button-program")
-  .addEventListener("click", createProgram);
+document.querySelector("#button-program").addEventListener("click", createProgram);
 
 function createProgram() {
+
   document.querySelector(".program-list").innerHTML = "";
   var dateItem = document.querySelector(".date");
   var date = dateItem.value;
@@ -108,14 +116,7 @@ function createProgram() {
   var newOption1 = document.createElement("option");
   for (var i = 0; i < listOfPrograms.length; i++) {
     var newProgram = document.createTextNode(listOfPrograms[i].getData());
-     var movieSelect = document.querySelector(".list-of-movies");
-     var newOption = document.createElement("option");
-     for (var i = 0; i < program.listOfMovies.length; i++) {
-       var newMovie = document.createTextNode(program.listOfMovies[i].getData());
-     }
-     newOption.appendChild(newMovie);
-     movieSelect.appendChild(newOption);
-     
+
   }
   newOption1.appendChild(newProgram);
   programSelect.appendChild(newOption1);
