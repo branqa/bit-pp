@@ -1,5 +1,4 @@
-// objekat koji moze da predstavlja film
-
+// movie object
 function Movie(movieTitle, movieLength, movieGenre) {
     this.movieTitle = movieTitle;
     this.movieLength = movieLength;
@@ -14,20 +13,20 @@ Movie.prototype.getData = function () {
     return this.movieTitle + ', ' + this.movieLength + ', ' + firstLetter + lastLetter;
 }
 
+
+// program object
 function Program(date) {
     this.date = date;
     this.listOfMovies =[];
     this.programId = Math.floor(89999*Math.random()+10000);
 }
 
-
-
 Program.prototype.getData = function() {
     var totalLengthOfMovies =0;
     var totalNumbOfMovies = this.listOfMovies.length;
 
     if (totalNumbOfMovies == 0){
-        return this.date + ' ,program to be anounced';
+        return this.date + ', program to be anounced';
     }
     else {
     for (var i=0;i<this.listOfMovies.length;i++){
@@ -37,7 +36,6 @@ Program.prototype.getData = function() {
     return this.date + ', ' + totalNumbOfMovies + ' movies, duration: ' + totalLengthOfMovies;
 }
 }
-
 
 Program.prototype.addMovie = function(movie){
     listOfMovies = this.listOfMovies.push(movie);

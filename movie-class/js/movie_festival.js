@@ -1,15 +1,12 @@
+// list of all movies
 var allMovies = [];
 
-
-
-// funkcionalnost interfejsa
-// add movie funkcionalnost
-
+//create movie button
 document.querySelector('#button-movie').addEventListener('click', createMovie);
-// 1) procitati unete podatke
 
 
 function createMovie() {
+    //read the entered data
     var movieTitleItem = document.querySelector('.movie-title');
     var movieTitle = movieTitleItem.value;
     var movieLengthItem = document.querySelector('.movie-length');
@@ -18,13 +15,8 @@ function createMovie() {
     var movieGenreIndex = movieSelect.selectedIndex;
     var movieGenre = movieSelect.options[movieGenreIndex].value;
 
-
-    // console.log(movieTitle, movieLength, movieGenre);
-
-    //2) validacija podataka
-
+    //validation
     var errorMessage = document.querySelector('.movie-error');
-
     var error = {
         OK: 'OK',
         INSERT_TITLE: 'Please insert the title',
@@ -33,7 +25,6 @@ function createMovie() {
     }
 
     function validation(movieTitle, movieLength, movieGenre) {
-        // movieLength = parseInt(movieLength);
         if (movieTitle == '') {
             return error.INSERT_TITLE;
         } else if (isNaN(movieLength) || movieLength <= 0) {
@@ -62,10 +53,10 @@ function createMovie() {
     }
 
     if (validationMessage == error.OK) {
-        // 3) ako je sve u redu potrebno je napraviti film
+        // create movie 
         var movie = new Movie(movieTitle, movieLength, movieGenre);
 
-        // 5) prikazati taj u listi filmova 
+      //show movie in the list of movies
         allMovies.push(movie);
         movieTitleItem.value = "";
         movieLengthItem.value = "";
@@ -73,31 +64,27 @@ function createMovie() {
         printMessage = document.createTextNode(error.OK);
 
         var showMovieList = document.querySelector('ul');
-
-
         var newLi = document.createElement('li');
         var newMovie = document.createTextNode(movie.getData());
         newLi.appendChild(newMovie);
         showMovieList.appendChild(newLi);
 
-        // 6) azuriramo duzinu filmova
+        // updating length of all movies
         var lengthOfAllMovie = 0;
         for (var i = 0; i < allMovies.length; i++) {
-            lengthOfAllMovie = parseInt(lengthOfAllMovie) + parseInt(allMovies[i].movieLength);
+            lengthOfAllMovie += parseInt(allMovies[i].movieLength);
         }
-
-        console.log(lengthOfAllMovie);
-
-
+  
+        //show the length of all movies 
         document.querySelector('.movie-error').innerHTML = '';
         var allLength = document.querySelector('.all');
         allLength.textContent = lengthOfAllMovie;
-
 
     }
 
     errorMessage.appendChild(printMessage);
 
+    //add created movies in the select list
     var listOfMovies = document.querySelector('.list-of-movies');
     var newOptionMovie = document.createElement('option');
     var selectMovie = document.createTextNode(movie.getData());
@@ -106,14 +93,20 @@ function createMovie() {
     listOfMovies.appendChild(newOptionMovie);
 
 }
+
+//list of all programs
 var allPrograms =  [];
 
+//create program button
 document.querySelector('#button-program').addEventListener('click', createProgram);
 
+
 function createProgram() {
+    // read the entered data
     var dateItem = document.querySelector('.date');
     var date = dateItem.value;
 
+    //validation
     function validation(date) {
 
         if(date == '') {
@@ -125,10 +118,13 @@ function createProgram() {
 
     var validationMessage = validation(date);
     var divMessage1 =  document.querySelector('#print-message1');
+
     if (validationMessage == 'OK'){
     document.querySelector('#print-message1').innerHTML = '';
     printMessage1=document.createTextNode('OK');
     divMessage1.appendChild(printMessage1);
+
+    // create new program
     var program = new Program (date);
     allPrograms.push(program);
     var newProgram = document.querySelector('.program-field');
@@ -138,6 +134,7 @@ function createProgram() {
     newLi.appendChild(textDateProgram);
     newProgram.appendChild(newLi);
 
+    // add program in the program list
     var listOfPrograms = document.querySelector('.list-of-programs');
     var newOptionProgram = document.createElement('option');
     newOptionProgram.value= program.programId;
@@ -153,28 +150,27 @@ function createProgram() {
 
 }
 
+// add movie to program button
 document.querySelector('#button-program-list').addEventListener('click', addMovieToProgram);
 
 function addMovieToProgram() {
     var movie = document.querySelector('.list-of-movies').value;
     var program = document.querySelector('.list-of-programs').value;
 
-for (var i = 0; i<allPrograms.length; i++){
-    if (allPrograms[i].programId==program){
-        var programObject = allPrograms[i];
+    for (var i = 0; i<allPrograms.length; i++){
+        if (allPrograms[i].programId==program){
+            var programObject = allPrograms[i];
     }
 }
 
-for (var i = 0; i<allMovies.length; i++){
-    if (allMovies[i].movieId==movie){
-        var movieObject = allMovies[i];
+    for (var i = 0; i<allMovies.length; i++){
+        if (allMovies[i].movieId==movie){
+            var movieObject = allMovies[i];
     }
 }
+    programObject.addMovie(movieObject);
 
-programObject.addMovie(movieObject);
-
-var selectedProgram = document.querySelector('li[data-id="'+ program + '"]');
-selectedProgram.textContent = programObject.getData();
-console.log(programObject.getData());
+    var selectedProgram = document.querySelector('li[data-id="'+ program + '"]');
+    selectedProgram.textContent = programObject.getData();
 
 }
