@@ -187,26 +187,52 @@ console.log(checkIf(array));
 // 	Input: [3, 11, 9, 5, 6]
 // 	Output: yes
 
-
-// let check = function(array){
-//     let positive = Number.isInteger(x=> x);
-//     let result = array.every(x => x >0);
-//     if(positive == true && result == true){
-
-//         return 'yes';
-//     }
-// }
-
-// console.log(check([3, 11, 9, 5, 6]));
-
-
-
 // 	Input: [3, -12, 4, 11]
 // 	Output: no
+
+
+let check = function(array){
+    let result = array.every(function(element){
+        return element > 0;
+    })
+    if(result == true){
+        return 'yes';
+    }
+    return 'no';
+}
+
+console.log(check([3, 11, 9, 5, 6]));
+
+
 // Write a function that calculates the product of the elements of the array. 
 // Input: [2, 8, 3]
 // Output:  48
 
+let check = function(array){
+    let result = array.reduce(function(acc, currentValue){
+        return acc * currentValue;
+    })
+    return result;
+}
+
+console.log(check([2, 8, 3]));
+
 // Write a function that calculates the maximum of the given array. 
 // Input: [2, 7, 3, 8, 5.4] 
 // 	Output: 8
+
+let calc = function(array){
+    
+    let result = array.reduce(function(acc, currentValue){
+        if(acc>currentValue){
+            return acc;
+        } else {
+            return currentValue;
+        }
+
+    })
+
+    return result;
+}
+
+console.log(calc([2, 7, 3, 8, 5.4]));
