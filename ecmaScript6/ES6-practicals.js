@@ -6,7 +6,7 @@
 let cap = function(...args){
     var all = '';
     
-    args.forEach(function(element){
+    args.forEach((element) => {
         if(typeof element == 'string'){
         var letter = element[0].toUpperCase();
         var rest = element.slice(1);
@@ -29,13 +29,11 @@ console.log(cap('hello', 'there', 6));
 // 	Input: 120
 // 	Output: 24
 
-let calculates = function(price){
-    const taxRate = 0.2;
-    let sale = price * taxRate;
-    return  sale;
-}
 
-console.log(calculates(120));
+let calculates = (price,taxRate) => 
+    price * taxRate;
+   
+console.log(calculates(120, 0.2));
 
 
 	
@@ -45,10 +43,10 @@ console.log(calculates(120));
 // 	Output: [6, 8, 13, -7, 4.1]
 
 
-let increase = function(array, x){
-    let map1 = array.map(y => y * x);
-    return map1;
-}
+let increase = (array, x) => 
+    array.map(y => y * x);
+    // return map1;
+
 
 console.log(increase([4, 6, 11, -9, 2.1], 2));
 
@@ -58,31 +56,31 @@ console.log(increase([4, 6, 11, -9, 2.1], 2));
 // 	Output: [6, 0]
 
 
-let even = function(array){
-    let result = array.filter(x => x % 2 == 0);
-    return result;
-}
-
+let even = (array) => 
+     array.filter(x => x % 2 == 0);
+    
 console.log(even([6, 11, 9, 0, 3]));
+
+
 
 // Write a function that filters all the strings from the given array that contain substring JS or js.
 // 	Input: [‘compiler’, ‘transpiler’, ’babel.js’, ‘JS standard’, ‘linter‘]
 // 	Output: [‘babel.js, ‘JS standard’]
 
-let filterJS = function(array){
-    let result = array.filter(x => x.includes('js') || x.includes('JS'));
-    return result;
-}
+let filterJS = (array) => 
+  array.filter(x => x.includes('js') || x.includes('JS'));
+ 
+
 console.log(filterJS(['compiler', 'transpiler', 'babel.js', 'JS standard', 'linter']));
 
 // Write a function that filters all integer numbers from the given array. 
 // Input: [1.6, 11.34, 9.23, 7, 3.11, 8]
 // 	Output: [7, 8]
 
-let intg = function(array){
-    let result = array.filter(x => Number.isInteger(x));
-    return result;
-}
+let intg =(array) => 
+    array.filter(x => Number.isInteger(x));
+ 
+
 
 console.log(intg([1.6, 11.34, 9.23, 7, 3.11, 8]));
 
@@ -91,10 +89,10 @@ console.log(intg([1.6, 11.34, 9.23, 7, 3.11, 8]));
 // 	Function arguments: 23, 11.5, 9, ‘abc’, 45, 28, 553 
 // 	Output: 45, 553
     
-let fil = function(...args){
+let fil = (...args) => {
     var all = '';
     
-    args.forEach(function(element){
+    args.forEach((element) => {
         if(typeof element == 'number'){
             let element1 = element.toString();
             if(element1.includes('5')){
@@ -115,9 +113,9 @@ console.log(fil(23, 11.5, 9, 'abc', 45, 28, 553 ));
 // 	Input: [1.6, 11.34, 29.23, 7, 3.11, 18]
 // 	Output: 1, 2, 5
 
-let greater = function(array){
+let greater = (array) => {
     var all = '';
-    array.forEach(function(element, index){
+    array.forEach((element, index) => {
             if(element>10){
                 all += `${index}, `;
             }
@@ -140,9 +138,9 @@ console.log(greater([1.6, 11.34, 29.23, 7, 3.11, 18]));
 
 var array = [{ name : 'Izzy', age : 32 }, { name : 'Branka', age: 27 }];
 
-let printOut = function(array) {
+let printOut = (array) => {
     var result = '';
-    array.forEach(function(element){
+    array.forEach((element) =>{
         if (element.age>25){
             result +=`${element.name} `;
         }
@@ -156,10 +154,10 @@ console.log(printOut(array));
 
 var array = [{ name : 'Izzy', age : 32 }, { name : 'Branka', age: 27 }];
 //without some() for 40
-let checkIf = function(array) {
+let checkIf = (array) => {
    
     var counter = 0;
-    array.forEach(function(element){
+    array.forEach((element) =>{
         if (element.age>40){
             counter++;
         } 
@@ -174,13 +172,12 @@ let checkIf = function(array) {
 
 console.log(checkIf(array));
 
+
+var array = [{ name : 'Izzy', age : 32 }, { name : 'Branka', age: 27 }];
 // with some() for 20
-let checkIf = function (array){
-    let result = array.some(x=>x.age>20);
-    return result;
-}
-
-
+let checkIf = (array) => 
+     array.some(x=>x.age>20);
+   
 console.log(checkIf(array));
 
 // Write a function that checks if the given array is an array of positive integer values. 
@@ -191,7 +188,7 @@ console.log(checkIf(array));
 // 	Output: no
 
 
-let check = function(array){
+let check = (array) => {
     let result = array.every(function(element){
         return element > 0;
     })
@@ -208,12 +205,10 @@ console.log(check([3, 11, 9, 5, 6]));
 // Input: [2, 8, 3]
 // Output:  48
 
-let check = function(array){
-    let result = array.reduce(function(acc, currentValue){
+let check = (array) => 
+    array.reduce((acc, currentValue) => {
         return acc * currentValue;
     })
-    return result;
-}
 
 console.log(check([2, 8, 3]));
 
@@ -221,9 +216,9 @@ console.log(check([2, 8, 3]));
 // Input: [2, 7, 3, 8, 5.4] 
 // 	Output: 8
 
-let calc = function(array){
+let calc =(array) => 
     
-    let result = array.reduce(function(acc, currentValue){
+    array.reduce((acc, currentValue) => {
         if(acc>currentValue){
             return acc;
         } else {
@@ -231,8 +226,5 @@ let calc = function(array){
         }
 
     })
-
-    return result;
-}
 
 console.log(calc([2, 7, 3, 8, 5.4]));
