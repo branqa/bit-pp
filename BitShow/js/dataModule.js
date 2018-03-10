@@ -1,8 +1,8 @@
 const dataModule = (function (){
 
     class Season {
-        constructor(startDate, endDate){
-            this.startDate = startDate;
+        constructor(premiereDate, endDate){
+            this.premiereDate = premiereDate;
             this.endDate = endDate;
         }
     }
@@ -27,7 +27,7 @@ const dataModule = (function (){
         }
 
         addCast(cast){
-            this.cast.push(cast);
+            this.casts.push(cast);
         }
     }
 
