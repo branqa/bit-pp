@@ -11,23 +11,31 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
 
-        <nav class="navbar navbar-dark bg-dark justify-content-between">
+        <nav class="navbar  bg-dark justify-content-between">
             <a class="navbar-brand" style="color:white">BitShow</a>
             <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search_box" list="search-list">
-                <datalist id = 'search-list'>
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" list="search-list">
+                <datalist id='search-list'>
 
                 </datalist>
             </form>
         </nav>
-
+    </div>
+    <div class="container">
+        <h1>Popular Shows</h1>
         <div class="row">
 
         </div>
+    </div>
+    <div class="container-fluid">
         <footer>
-            Copyright &copy; Bit Student 2018
+            <div class="footer-copyright  bg-dark py-3 text-center " style="color:white">
+                Copyright ©
+                <strong> Bit Student 2018</strong>
+                </a>
+            </div>
         </footer>
     </div>
     <script src="./bootstrap/js/bootstrap.min.js"></script>
@@ -36,8 +44,8 @@
     <script src="js/UIModule.js"></script>
     <script src="js/mainModule.js"></script>
     <script>
-            mainModule.init();
-     </script>
+        mainModule.init();
+    </script>
 </body>
 
 </html>
