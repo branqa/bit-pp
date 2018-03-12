@@ -1,3 +1,5 @@
+
+
 // list of all movies
 var allMovies = [];
 

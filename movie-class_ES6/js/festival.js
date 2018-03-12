@@ -1,24 +1,24 @@
-var movieList = [];
+const movieList = [];
 
 
 document.querySelector('#movieButton').addEventListener('click', createMovie);
 
 function createMovie() {
 
-    var movieTitle = document.querySelector('#title');
-    var movieLength = document.querySelector('#length');
-    var movieGenre = document.querySelector('#genre');
+    const movieTitle = document.querySelector('#title');
+    const movieLength = document.querySelector('#length');
+    const movieGenre = document.querySelector('#genre');
 
-    var titleValue = movieTitle.value;
-    var lengthValue = movieLength.value;
-    var genreValue = movieGenre.value;
+    const titleValue = movieTitle.value;
+    const lengthValue = movieLength.value;
+    const genreValue = movieGenre.value;
 
-    var error = {
+    const error = {
         OK: '',
         INSERT_TITLE: 'Missing title!',
         INSERT_LENGTH: 'Missing length!',
         INSERT_GENRE: 'Missing genre!'
-    }
+    };
 
     function validation(titleValue, lengthValue, genreValue) {
         if (titleValue != "") {
@@ -33,49 +33,49 @@ function createMovie() {
         return error.INSERT_TITLE;
     }
 
-    var validationResult = validation(titleValue, lengthValue, genreValue);
+    const validationResult = validation(titleValue, lengthValue, genreValue);
 
     if (validationResult != error.OK) {
         var message = validationResult;
     }
 
     if (validationResult == error.OK) {
-        var movie = new CreateMovie(titleValue, lengthValue, genreValue);
+        const movie = new CreateMovie(titleValue, lengthValue, genreValue);
         movieList.push(movie);
 
-        var movieIndex = movie.movieId;
+        const movieIndex = movie.movieId;
         var message = error.OK;
 
-        var movieInfo = movie.getData();
+        const movieInfo = movie.getData();
 
         var movieText = document.createTextNode(movieInfo);
-        var ul = document.querySelector('#movieUl');
-        var li = document.createElement('li');
+        const ul = document.querySelector('#movieUl');
+        const li = document.createElement('li');
         li.appendChild(movieText);
         ul.appendChild(li);
         document.querySelector("#errorMessage").innerHTML = '';
 
         var movieText = document.createTextNode(movieInfo);
-        var select = document.querySelector('#movieSelect');
-        var option = document.createElement('option');
+        const select = document.querySelector('#movieSelect');
+        const option = document.createElement('option');
         option.appendChild(movieText);
         option.value = movieIndex;
         select.appendChild(option);
     }
 
-    var text = document.createTextNode(message);
-    var errorDiv = document.querySelector("#errorMessage");
+    const text = document.createTextNode(message);
+    const errorDiv = document.querySelector("#errorMessage");
     errorDiv.appendChild(text);
 
 
 
-    var totalLength = 0;
+    let totalLength = 0;
 
-    for (var i = 0; i < movieList.length; i++) {
+    for (let i = 0; i < movieList.length; i++) {
         totalLength = parseInt(totalLength) + parseInt(movieList[i].movieLength);
     }
 
-    var allMoviesLength = document.querySelector('#allMoviesText').textContent = totalLength;
+    const allMoviesLength = document.querySelector('#allMoviesText').textContent = totalLength;
 
     movieTitle.value = "";
     movieLength.value = "";
@@ -86,13 +86,13 @@ function createMovie() {
 //create program        
 
 
-var programList = [];
+const programList = [];
 
 document.querySelector('#programButton').addEventListener('click', createProgram);
 
 function createProgram() {
-    var programDate = document.querySelector('#date');
-    var dateValue = programDate.value;
+    const programDate = document.querySelector('#date');
+    const dateValue = programDate.value;
 
     function validation(dateValue) {
         if (dateValue == '') {
@@ -102,18 +102,18 @@ function createProgram() {
         }
     }
 
-    var validationResult = validation(dateValue);
+    const validationResult = validation(dateValue);
 
     if (validationResult == 'OK') {
-        var program = new Program(dateValue);
+        const program = new Program(dateValue);
         programList.push(program);
-        var programIndex = program.programId;
+        const programIndex = program.programId;
 
-        var programInfo = program.getData();
+        const programInfo = program.getData();
 
         var programText = document.createTextNode(programInfo);
-        var ul = document.querySelector('#programUl');
-        var li = document.createElement('li');
+        const ul = document.querySelector('#programUl');
+        const li = document.createElement('li');
         li.setAttribute('data-programIndex', programIndex);
         li.appendChild(programText);
         ul.appendChild(li);
@@ -121,7 +121,7 @@ function createProgram() {
 
         var programText = document.createTextNode(programInfo);
         var select = document.querySelector('#programSelect');
-        var option = document.createElement('option');
+        const option = document.createElement('option');
         option.appendChild(programText);
         option.value = programIndex;
         select.appendChild(option);
@@ -136,32 +136,32 @@ document.querySelector('#addMovieToProgram').addEventListener('click', addMovieT
 
 function addMovieToProgram() {
     document.querySelector("#errorText").innerHTML = '';
-    var movieSelect = document.querySelector('#movieSelect')
-    var movieIndex = movieSelect.value;
-    var movie;
+    const movieSelect = document.querySelector('#movieSelect');
+    const movieIndex = movieSelect.value;
+    let movie;
     for (var i = 0; i < movieList.length; i++) {
         if (movieList[i].movieId == parseInt(movieIndex)) {
             movie = movieList[i];
         }
     }
 
-    var programSelect = document.querySelector('#programSelect');
-    var programIndex = programSelect.value;
-    var program;
+    const programSelect = document.querySelector('#programSelect');
+    const programIndex = programSelect.value;
+    let program;
     for (var i = 0; i < programList.length; i++) {
         if (programList[i].programId == parseInt(programIndex)) {
             program = programList[i];
         }
     }
 
-    var result = program.addMovie(movie);
+    const result = program.addMovie(movie);
 
     if(result == "Movie already in program"){
         var text = document.createTextNode(result);
         var errorDiv = document.querySelector("#errorText");
         errorDiv.appendChild(text);
     }
-    var li = document.querySelector("li[data-programIndex = '" + programIndex + "']");
+    var li = document.querySelector(`li[data-programIndex = '${programIndex}']`);
     var programInfo = program.getData();
     li.textContent = programInfo;
 
@@ -171,7 +171,7 @@ function addMovieToProgram() {
         errorDiv.appendChild(text);
     }
 
-    var li = document.querySelector("li[data-programIndex = '" + programIndex + "']");
+    var li = document.querySelector(`li[data-programIndex = '${programIndex}']`);
     var programInfo = program.getData();
     li.textContent = programInfo;
    

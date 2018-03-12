@@ -26,7 +26,7 @@ Program.prototype.getData = function() {
     var totalNumbOfMovies = this.listOfMovies.length;
 
     if (totalNumbOfMovies == 0){
-        return this.date + ', program to be anounced';
+        return this.date + ', program to be announced';
     }
     else {
     for (var i=0;i<this.listOfMovies.length;i++){
@@ -40,6 +40,7 @@ Program.prototype.getData = function() {
 Program.prototype.addMovie = function(movie){
     listOfMovies = this.listOfMovies.push(movie);
 }
+
 
 
 
