@@ -27,7 +27,7 @@ const mainModule = (function(dataModule, UIModule) {
         method: "GET"
       });
 
-        $("datalist").empty();
+     
 
       request.done(function(msg) {
        for (let i = 0; i<10;i++) {
@@ -39,9 +39,12 @@ const mainModule = (function(dataModule, UIModule) {
 
       $("input").change(function(event) {
          
-        var idAtt = $(this).val().split(" ");
-        var id = idAtt[idAtt.length - 1];
+        var value = $(this).val();
+        var element = $(`*[value='${value}']`);
+        var id = element.attr ("data-id");
         window.location.href = `showInfoPage.html#${id}`;
+        console.log(  window.location.href);
+        //  location.reload();
       });
     });
   }
@@ -105,9 +108,15 @@ const mainModule = (function(dataModule, UIModule) {
         
        });
 
-        $("input").change(function(event) {
-           window.location.href = `show.html`;
-        });
+       $("input").change(function(event) {
+         
+        var value = $(this).val();
+        var element = $(`*[value='${value}']`);
+        var id = element.attr ("data-id");
+        window.location.href = `showInfoPage.html#${id}`;
+        console.log(  window.location.href);
+         location.reload();
+      });
      });
   }  
 

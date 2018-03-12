@@ -66,8 +66,10 @@ const UIModule = (function() {
     $(d1).append(details);
   }
   function makeSearchList(movieName, id) {
-    var optionList = $("<option>");
-    $(optionList).text(`${movieName} ${id} `);
+    let searchList = $('#search-list');
+    var optionList = $(`<option class = "optionStyle">${name}</option>`);
+    optionList.attr('value', movieName);
+    optionList.attr('data-id', id);
     $("#search-list").append(optionList);
   }
 
